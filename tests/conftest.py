@@ -4,9 +4,6 @@ from src.class_category import Category
 from src.class_product import Product
 
 
-# from src.class_category import Category
-
-
 @pytest.fixture
 def device1():
     device = Product("Realme 13+", "256GB, Розовый цвет, 46MP камера", 16000.0, 5)

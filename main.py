@@ -1,5 +1,8 @@
 from src.class_product import Product
 from src.class_category import Category
+from src.utils import make_from_json
+
+path = "data/products.json"
 
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
@@ -45,3 +48,14 @@ if __name__ == "__main__":
 
     print(Category.category_count)
     print(Category.product_count)
+
+    list_products, list_object_products, list_object_categorys = make_from_json(path)
+    print("\nСписок товаров:")
+    for i in list_products:
+        print(i)
+    print("\nСписок адресов объектов класса Product:")
+    for i in list_object_products:
+        print(i)
+    print("\nСписок адресов объектов класса Category:")
+    for i in list_object_categorys:
+        print(i)
