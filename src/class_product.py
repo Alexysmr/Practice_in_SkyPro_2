@@ -34,11 +34,7 @@ class Product:
 
     @classmethod
     def new_product(cls, dict_product):
-        cls.name = dict_product["name"]
-        cls.description = dict_product["description"]
-        cls.__price = dict_product["price"]
-        cls.quantity = dict_product["quantity"]
-        return Product(cls.name, cls.description, cls.__price, cls.quantity)
+        return Product(**dict_product)
 
     @property
     def price(self):

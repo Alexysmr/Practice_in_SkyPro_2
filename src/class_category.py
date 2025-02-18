@@ -8,20 +8,19 @@ class Category:
     product_count = 0
 
     def __init__(self, name, description, products):
-        list_products = []
         self.name = name
         self.description = description
         self.__products = products
         Category.product_count += len(products)
         Category.category_count += 1
-        for i in self.__products:
-            list_products.append(f"{i.name}, {i.price} руб. Остаток {i.quantity} шт.")
-        self.__products = list_products
 
     def add_product(self, products):
-        self.__products.append(f"{products.name}, {products.price} руб. Остаток: {products.quantity} шт.")
+        self.__products.append(products)
         Category.product_count += 1
 
     @property
     def products(self):
-        return self.__products
+        list_products = []
+        for i in self.__products:
+            list_products.append(f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.")
+        return list_products
