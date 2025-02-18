@@ -19,8 +19,8 @@ class Category:
         self.__products = list_products
 
     def add_product(self, products):
-        self.products.append(f"{products.name}, {products.price} руб. Остаток {products.quantity} шт.")
-        Category.product_count += len([products])
+        self.__products.append(f"{products.name}, {products.price} руб. Остаток: {products.quantity} шт.")
+        Category.product_count += 1
 
     @property
     def products(self):

@@ -53,5 +53,5 @@ class Product:
                 f"Предлагаемая новая цена {new_price} ниже текущей {self.price}. Для подтверждения "
                 f'установки новой цены введите "y", иное - отмена: -> '
             )
-            if confirmation == "y" or confirmation:
+            if confirmation == "y":
                 self.__price = new_price

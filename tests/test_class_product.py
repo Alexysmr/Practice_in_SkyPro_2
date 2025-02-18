@@ -4,12 +4,13 @@ from unittest.mock import patch
 from src.class_product import Product
 
 
-def test_product_init(device1):
-    assert (device1.name, device1.description, device1.price, device1.quantity) == (
-        "Realme 13+",
+def test_product_init():
+    device_1 = Product("Realme 13++", "256GB, Розовый цвет, 46MP камера", 16000.0, 5)
+    assert (device_1.name, device_1.description, device_1.price, device_1.quantity) == (
+        "Realme 13++",
         "256GB, Розовый цвет, 46MP камера",
         16000.0,
-        10,
+        5,
     )
 
 
