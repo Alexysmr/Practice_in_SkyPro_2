@@ -15,6 +15,12 @@ class Product:
         self.__price = new_list[2]
         self.quantity = new_list[3]
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб., Остаток: {self.quantity}"
+
+    def __add__(self, other):
+        return self.quantity * self.__price + other.quantity * other.__price
+
     @staticmethod
     def accounting_for_instances(new_list: list) -> list:
         if not Product.list_of_products:
@@ -51,3 +57,6 @@ class Product:
             )
             if confirmation == "y":
                 self.__price = new_price
+
+    def __call__(self, *args, **kwargs):
+        return self
