@@ -2,6 +2,13 @@
 
 **Описание:** Курс "Объектно-ориентированное программирование" университета Sky Pro по специальности "Разработчик-Python"
 
+**Структура**
+
+src\class_category.py - модуль содержит класс описания категорий товаров.  
+src\class_product.py - модуль содержит класс описания товаров.  
+src\products.py - модуль содержит классы описывающие товары: смартфоны и газонную траву.  
+src\utils.py - модуль содержит вспомогательные функции  
+
 **Инструкция по установке**
 
 Для пользователя:
@@ -25,9 +32,10 @@ pytest 8.3.4
 
 Тестовые модули:  
 test\conftest.py  
-test\test_class_product.py  
-test\test_class_category.py
-test\test_utils.py
+test\test_class_product.py   
+test\test_class_category.py  
+test\test_utils.py  
+test\test_products.py  
 
 **Лицензия**
 

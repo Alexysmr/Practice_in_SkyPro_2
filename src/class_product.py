@@ -19,7 +19,9 @@ class Product:
         return f"{self.name}, {self.price} руб., Остаток: {self.quantity}"
 
     def __add__(self, other):
-        return self.quantity * self.__price + other.quantity * other.__price
+        if type(self) is type(other):
+            return self.quantity * self.__price + other.quantity * other.__price
+        raise TypeError
 
     @staticmethod
     def accounting_for_instances(new_list: list) -> list:

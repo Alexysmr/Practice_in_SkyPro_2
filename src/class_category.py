@@ -1,3 +1,6 @@
+from src.class_product import Product
+
+
 class Category:
     """Класс описания категорий товаров"""
 
@@ -21,8 +24,11 @@ class Category:
         return f"{self.name}, количество продуктов: {self.all_quantity} шт."
 
     def add_product(self, products):
-        self.__products.append(products)
-        Category.product_count += 1
+        if isinstance(products, Product):
+            self.__products.append(products)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):
