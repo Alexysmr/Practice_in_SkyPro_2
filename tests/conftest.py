@@ -23,6 +23,11 @@ def device3():
 
 
 @pytest.fixture
+def device4():
+    return {"name": "Realme Realme 8", "description": "128Gb, серебристый, 46MP камера", "price": 16000, "quantity": 3}
+
+
+@pytest.fixture
 def product_category1(device1, device2):
     return Category(
         "Смартфоны",

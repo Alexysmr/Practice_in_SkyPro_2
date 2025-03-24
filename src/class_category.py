@@ -1,7 +1,17 @@
+from abc import ABC, abstractmethod
+
 from src.class_product import Product
 
 
-class Category:
+class BaseCategory(ABC):
+    """Базовый класс для класса Category"""
+
+    @abstractmethod
+    def __init__(self):
+        pass
+
+
+class Category(BaseCategory):
     """Класс описания категорий товаров"""
 
     name: str
@@ -16,6 +26,7 @@ class Category:
         self.__products = products
         Category.product_count += len(products)
         Category.category_count += 1
+        Order(self.name, products)
 
     def __str__(self):
         self.all_quantity = 0
@@ -54,3 +65,11 @@ class CategorysIteration:
     def __next__(self):
         for i in self.product:
             return i
+
+
+class Order(Category):
+    """Класс вывода информации о покупках"""
+
+    def __init__(self, name, products):
+        for i in products:
+            print(f"Заказ: {name} - {i.name}; Кол-во: {i.quantity}; Итоговая стоимость: {i.quantity * i.price}")

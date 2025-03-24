@@ -1,4 +1,22 @@
-class Product:
+from abc import ABC, abstractmethod
+
+
+class BaseProduct(ABC):
+    """Базовый абстрактный класс для класса Product"""
+
+    @abstractmethod
+    def __init__(self):
+        pass
+
+
+class PrintProductMixin:
+    """Mixin для вывода расшифровки экземпляра класса Product в консоль"""
+
+    def __init__(self):
+        print("Working of mixin - ", repr(self))
+
+
+class Product(PrintProductMixin, BaseProduct):
     """Класс описания товаров"""
 
     name: str
@@ -14,6 +32,10 @@ class Product:
         self.description = new_list[1]
         self.__price = new_list[2]
         self.quantity = new_list[3]
+        super().__init__()
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.name}, {self.price}, {self.quantity}"
 
     def __str__(self):
         return f"{self.name}, {self.price} руб., Остаток: {self.quantity}"

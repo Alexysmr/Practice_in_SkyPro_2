@@ -14,6 +14,10 @@ def test_product_init():
     )
 
 
+def test_product_str(device4):
+    assert str(Product(**device4)) == "Realme Realme 8, 16000 руб., Остаток: 3"
+
+
 def test_newproduct_price(monkeypatch):
     new_product = Product.new_product(
         {
@@ -26,3 +30,8 @@ def test_newproduct_price(monkeypatch):
     with unittest.mock.patch("builtins.input", side_effect=["y"]):
         new_product.price = 800
         assert new_product.price == 800
+
+
+def test_product_with_mixin(device4, capsys):
+    Product(**device4)
+    print(capsys.readouterr())
