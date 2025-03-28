@@ -31,6 +31,8 @@ class Product(PrintProductMixin, BaseProduct):
         self.name = new_list[0]
         self.description = new_list[1]
         self.__price = new_list[2]
+        if new_list[3] <= 0:
+            raise ValueError("Продукт с нулевым количеством не может быть добавлен")
         self.quantity = new_list[3]
         super().__init__()
 
@@ -83,4 +85,4 @@ class Product(PrintProductMixin, BaseProduct):
                 self.__price = new_price
 
     def __call__(self, *args, **kwargs):
-        return self
+        return self, *args
