@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import patch
 
+import pytest
+
 from src.class_product import Product
 
 
@@ -35,3 +37,8 @@ def test_newproduct_price(monkeypatch):
 def test_product_with_mixin(device4, capsys):
     Product(**device4)
     print(capsys.readouterr())
+
+
+def test_zero_quantity_raises_error():
+    with pytest.raises(ValueError, match="Продукт с нулевым количеством не может быть добавлен"):
+        Product("Товар", "Описание", 50.0, 0)

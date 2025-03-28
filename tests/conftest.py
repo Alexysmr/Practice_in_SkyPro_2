@@ -46,6 +46,11 @@ def product_category2(device3):
 
 
 @pytest.fixture
+def empty_product_category():
+    return Category("Пустая категория", "Категория без продуктов", [])
+
+
+@pytest.fixture
 def smartphone1():
     return {
         "name": "Realme Realme 13+",
@@ -84,3 +89,11 @@ def lawngrass1():
         "germination_period": "10 дней",
         "color": "Чистый малахит",
     }
+
+
+@pytest.fixture(autouse=True)
+def reset_counters():
+    print("\nСброс счётчиков...")
+    Category.category_count = 0
+    Category.product_count = 0
+    yield
